@@ -36,6 +36,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "AppiraterPlugin.h"
+
 extern NSString *const kAppiraterFirstUseDate;
 extern NSString *const kAppiraterUseCount;
 extern NSString *const kAppiraterSignificantEventCount;
@@ -47,7 +49,7 @@ extern NSString *const kAppiraterReminderRequestDate;
 /*
  Place your Apple generated software id here.
  */
-#define APPIRATER_APP_ID				301377083
+#define APPIRATER_APP_ID				[[[NSUserDefaults standardUserDefaults] objectForKey:APPIRATER_APPLICATION_ID_KEY] integerValue]
 
 /*
  Your app's name.
@@ -87,7 +89,7 @@ extern NSString *const kAppiraterReminderRequestDate;
  Users will need to have the same version of your app installed for this many
  days before they will be prompted to rate it.
  */
-#define APPIRATER_DAYS_UNTIL_PROMPT		30		// double
+#define APPIRATER_DAYS_UNTIL_PROMPT		[[[NSUserDefaults standardUserDefaults] objectForKey:APPIRATER_DAYS_KEY] doubleValue]
 
 /*
  An example of a 'use' would be if the user launched the app. Bringing the app
@@ -99,7 +101,7 @@ extern NSString *const kAppiraterReminderRequestDate;
  Users need to 'use' the same version of the app this many times before
  before they will be prompted to rate it.
  */
-#define APPIRATER_USES_UNTIL_PROMPT		20		// integer
+#define APPIRATER_USES_UNTIL_PROMPT		[[[NSUserDefaults standardUserDefaults] objectForKey:APPIRATER_STARTS_KEY] integerValue]		// integer
 
 /*
  A significant event can be anything you want to be in your app. In a

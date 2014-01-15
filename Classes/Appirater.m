@@ -119,7 +119,7 @@ NSString *templateReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZSto
 	if (APPIRATER_DEBUG)
 		return YES;
 	
-	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+ 	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 	
 	NSDate *dateOfFirstLaunch = [NSDate dateWithTimeIntervalSince1970:[userDefaults doubleForKey:kAppiraterFirstUseDate]];
 	NSTimeInterval timeSinceFirstLaunch = [[NSDate date] timeIntervalSinceDate:dateOfFirstLaunch];
@@ -129,7 +129,7 @@ NSString *templateReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZSto
 	
 	// check if the app has been used enough
 	int useCount = [userDefaults integerForKey:kAppiraterUseCount];
-	if (useCount <= APPIRATER_USES_UNTIL_PROMPT)
+	if (useCount <= APPIRATER_USES_UNTIL_PROMPT && APPIRATER_USES_UNTIL_PROMPT)
 		return NO;
 	
 	// check if the user has done enough significant events

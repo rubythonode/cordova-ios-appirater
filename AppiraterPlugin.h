@@ -12,6 +12,10 @@
 #import "CDVPlugin.h"
 #endif
 
+#define APPIRATER_DAYS_KEY @"appirater_days_key"
+#define APPIRATER_STARTS_KEY @"appirater_starts_key"
+#define APPIRATER_APPLICATION_ID_KEY @"application_id_key"
+
 @interface AppiraterPlugin : CDVPlugin {
 	NSString* callbackID;  
 }
@@ -19,6 +23,10 @@
 
 //Significant Event Method
 
-- (void) sigEvent:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;
-- (void) foreground:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;
+- (void)sigEvent:(CDVInvokedUrlCommand *)command;
+- (void)foreground:(CDVInvokedUrlCommand *)command;
+
+- (void)setNumberOfDays:(CDVInvokedUrlCommand *)command;
+- (void)setNumberOfStarts:(CDVInvokedUrlCommand *)command;
+- (void)setMarketApplicationId:(CDVInvokedUrlCommand *)command;
 @end
