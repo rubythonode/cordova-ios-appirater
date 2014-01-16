@@ -26,8 +26,6 @@
 {
     NSNumber *days = [command.arguments lastObject];
     
-    NSLog(@"Set number of days: %@", days);
-    
     [[NSUserDefaults standardUserDefaults] setObject:days forKey:APPIRATER_DAYS_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -36,8 +34,6 @@
 {
     NSNumber *starts = [command.arguments lastObject];
     
-    NSLog(@"Set number of starts: %@", starts);
-    
     [[NSUserDefaults standardUserDefaults] setObject:starts forKey:APPIRATER_STARTS_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -45,8 +41,6 @@
 - (void)setMarketApplicationId:(CDVInvokedUrlCommand *)command
 {
     NSNumber *applicationId = [command.arguments lastObject];
-    
-    NSLog(@"Set applicationId: %@", applicationId);
     
     [[NSUserDefaults standardUserDefaults] setObject:applicationId forKey:APPIRATER_APPLICATION_ID_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
