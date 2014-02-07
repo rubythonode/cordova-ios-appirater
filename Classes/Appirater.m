@@ -116,10 +116,14 @@ NSString *templateReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZSto
 }
 
 - (BOOL)ratingConditionsHaveBeenMet {
-	if (APPIRATER_DEBUG)
+	if (APPIRATER_DEBUG) {
 		return YES;
+    }
 	
  	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (![userDefaults objectForKey:APPIRATER_APPLICATION_ID_KEY]) {
+        return NO;
+    }
 	
 	NSDate *dateOfFirstLaunch = [NSDate dateWithTimeIntervalSince1970:[userDefaults doubleForKey:kAppiraterFirstUseDate]];
 	NSTimeInterval timeSinceFirstLaunch = [[NSDate date] timeIntervalSinceDate:dateOfFirstLaunch];
