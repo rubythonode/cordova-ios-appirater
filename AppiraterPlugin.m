@@ -19,7 +19,7 @@
 
 - (void) foreground:(CDVInvokedUrlCommand *)command;
 {
-	[Appirater appEnteredForeground:NO];
+	//[Appirater appEnteredForeground:NO];
 }
 
 - (void) setNumberOfDays:(CDVInvokedUrlCommand *)command;
